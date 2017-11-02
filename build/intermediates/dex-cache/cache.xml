@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/anishkelkar/AndroidBrowserSoftlab/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/meghna/AndroidStudioProjects/android-browser-softlab/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="32bf5287ed37cf09b67088445af5c864d73dfb37">
+        <dex dex="/home/meghna/AndroidStudioProjects/android-browser-softlab/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2d4a676c930d602b721f64d86bb2cc1b11bc5dda/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/meghna/AndroidStudioProjects/android-browser-softlab/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/anishkelkar/AndroidBrowserSoftlab/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_20de7959e5a6b91a4a335ac31dbec4f8dba76af0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/anishkelkar/AndroidBrowserSoftlab/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="3e7fe6e1ff4a86e89e455be7327c5dd7ff7eddc7">
-        <dex dex="/home/anishkelkar/AndroidBrowserSoftlab/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_caa3deed2829c62aeb7b231f8cc0124ef9088a33/classes.dex" />
+        <dex dex="/home/meghna/AndroidStudioProjects/android-browser-softlab/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ea0cccbb898b3b1f5ca705320d59b8aa6dd8c4c7/classes.dex" />
     </item>
 
 </items>
