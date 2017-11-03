@@ -12,47 +12,38 @@
         android:id="@+id/ll_urlgo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.10"
         android:orientation="horizontal"
-        android:weightSum="1"
         >
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            android:layout_weight="0.1"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-
-            />
-
-        <EditText
-            android:id="@+id/et_url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="3dp"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf = "@+id/progressBar"
-            android:layout_toRightOf="@id/progressBar"
-            android:layout_alignBaseline="@+id/progressBar"
-            />
-
         <ImageButton
             android:id="@+id/btn_go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
             android:background="@color/colorPrimary"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp"
             android:src="@android:drawable/ic_menu_search"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             />
+
+        <EditText
+            android:id="@+id/et_url"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toStartOf="@id/btn_go"
+            android:layout_toLeftOf="@id/btn_go"
+            />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_below="@id/et_url"
+
+            />
+
+
+
+
 
 
     </RelativeLayout>
@@ -139,7 +130,6 @@
 
 
 </LinearLayout>
-
 
 
 
