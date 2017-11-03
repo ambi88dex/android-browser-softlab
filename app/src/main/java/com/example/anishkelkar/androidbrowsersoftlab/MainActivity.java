@@ -1,11 +1,18 @@
 package com.example.anishkelkar.androidbrowsersoftlab;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.Browser;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebBackForwardList;
 import android.webkit.WebChromeClient;
+import android.webkit.WebHistoryItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -15,26 +22,32 @@ import android.widget.ProgressBar;
 import android.view.KeyEvent;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     WebView brow;
     EditText urledit;
     ImageButton go;
-    Button forward,back,clear,reload;
-    ProgressBar progressBar;
+    public static final String MyPREFERENCES = "MyPrefs" ;
 
+    Button forward,back,clear,reload, history;
+    ProgressBar progressBar;
+    SharedPreferences sharedPreferences ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        history = (Button) findViewById(R.id.btn_hist);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         brow= (WebView)findViewById(R.id.wv_brow);
         urledit = (EditText)findViewById(R.id.et_url);
         go = (ImageButton)findViewById(R.id.btn_go);
         forward = (Button)findViewById(R.id.btn_fwd);
         back = (Button)findViewById(R.id.btn_bck);
-        clear = (Button)findViewById(R.id.btn_clear);
+        //clear = (Button)findViewById(R.id.btn_clear);
         reload = (Button)findViewById(R.id.btn_reload);
 
         // When we click on something in our browser this enables to open the link in the same browser instead of opening anohter browser
@@ -83,6 +96,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+//        public static final String HISTORY_LS="";
+        history.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view) {
+
+                sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                ArrayList<String>al = new ArrayList();
+                WebBackForwardList currentList = brow.copyBackForwardList();
+                int currentSize = currentList.getSize();
+                String url;
+                for(int i = 0 ; i < currentSize ; i++)
+                {
+                    WebHistoryItem item = currentList.getItemAtIndex(i);
+                    url = item.getUrl();
+                    String ii = String.valueOf(i);
+                    editor.putString(ii, url);
+                    editor.commit();
+//                    LOG.d(TAG,al.toString());
+                }
+//                System.out.println(al.toString());
+//
+                Intent intent = new Intent(MainActivity.this, History.class);
+//
+//                intent.putExtra("historyList",al.toString());
+
+                startActivity(intent);
+
+            }
+
+        });
+
         forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,12 +154,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        clear.setOnClickListener(new View.OnClickListener() {
+        /*clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 brow.clearHistory();
+                //sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+               *//* SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                for(int i=0;i<5;i++){
+                    editor.remove(String.valueOf(i));
+                    editor.clear();
+                    editor.commit();
+                }*//*
             }
-        });
+        });*/
 
         urledit.setOnKeyListener(new View.OnKeyListener()
         {
@@ -139,6 +195,9 @@ public class MainActivity extends AppCompatActivity {
                                 brow.loadUrl(url);
                             }
 
+                            //Hide keyboard after using EditText
+                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(urledit.getWindowToken(),0);
 
                             return true;
                         default:
@@ -148,6 +207,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
 
     }
 }
