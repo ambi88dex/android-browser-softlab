@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.view.KeyEvent;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,18 +57,25 @@ public class MainActivity extends AppCompatActivity {
         WebSettings websettings = brow.getSettings();
         websettings.setJavaScriptEnabled(true);
 
-        brow.loadUrl("http://www.hackstories.com");
+        brow.loadUrl("http://www.google.com");
 
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String editextvalue = urledit.getText().toString();
+                if(editextvalue.toLowerCase().contains(".com".toLowerCase())|| editextvalue.toLowerCase().contains(".in".toLowerCase()) || editextvalue.toLowerCase().contains(".org".toLowerCase()))
+                {
+                    if(!editextvalue.startsWith("http://"))
+                        editextvalue = "http://" + editextvalue;
 
-                if(!editextvalue.startsWith("http://"))
-                    editextvalue = "http://" + editextvalue;
-
-                String url = editextvalue;
-                brow.loadUrl(url);
+                    String url = editextvalue;
+                    brow.loadUrl(url);
+                }
+                else
+                {
+                    String url="https://www.google.com/search?q="+editextvalue;
+                    brow.loadUrl(url);
+                }
 
                 //Hide keyboard after using EditText
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -105,6 +113,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        urledit.setOnKeyListener(new View.OnKeyListener()
+        {
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    switch (keyCode)
+                    {
+                        case KeyEvent.KEYCODE_DPAD_CENTER:
+                        case KeyEvent.KEYCODE_ENTER:
+
+                            String editextvalue = urledit.getText().toString();
+                            if(editextvalue.toLowerCase().contains(".com".toLowerCase())|| editextvalue.toLowerCase().contains(".in".toLowerCase()) || editextvalue.toLowerCase().contains(".org".toLowerCase()))
+                            {
+                                if(!editextvalue.startsWith("http://"))
+                                    editextvalue = "http://" + editextvalue;
+
+                                String url = editextvalue;
+                                brow.loadUrl(url);
+                            }
+                            else
+                            {
+                                String url="https://www.google.com/search?q="+editextvalue;
+                                brow.loadUrl(url);
+                            }
+
+
+                            return true;
+                        default:
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
 
     }
 }
