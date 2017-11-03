@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="32bf5287ed37cf09b67088445af5c864d73dfb37">
+        sha1="3e3a7ad7b95d07fde0e7768154dce8af47c765bb">
         <dex dex="/home/meghna/AndroidStudioProjects/android-browser-softlab/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2d4a676c930d602b721f64d86bb2cc1b11bc5dda/classes.dex" />
     </item>
     <item

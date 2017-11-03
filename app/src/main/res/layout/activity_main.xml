@@ -8,38 +8,64 @@
     android:weightSum="1"
     tools:context="com.example.anishkelkar.androidbrowsersoftlab.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ll_urlgo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.10"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="1"
+        >
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
             android:layout_weight="0.1"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+
+            />
 
         <EditText
             android:id="@+id/et_url"
-            android:layout_width="307dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"/>
+            android:paddingTop="3dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf = "@+id/progressBar"
+            android:layout_toRightOf="@id/progressBar"
+            android:layout_alignBaseline="@+id/progressBar"
+            />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_go"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:background="@color/colorPrimary"
-            android:drawableLeft="@android:drawable/ic_menu_search"
-            android:text="Search"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            />
 
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/wv_brow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.80"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_fwd">
+
+    </WebView>
 
     <LinearLayout
         android:id="@+id/ll_btns"
@@ -110,17 +136,9 @@
 
     </LinearLayout>
 
-    <WebView
-        android:id="@+id/wv_brow"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.80"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btn_fwd">
 
-    </WebView>
 
-    </LinearLayout>
+</LinearLayout>
 
 
 

@@ -10,6 +10,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.view.KeyEvent;
 
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     WebView brow;
     EditText urledit;
-    Button go,forward,back,clear,reload;
+    ImageButton go;
+    Button forward,back,clear,reload;
     ProgressBar progressBar;
 
     @Override
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         brow= (WebView)findViewById(R.id.wv_brow);
         urledit = (EditText)findViewById(R.id.et_url);
-        go = (Button)findViewById(R.id.btn_go);
+        go = (ImageButton)findViewById(R.id.btn_go);
         forward = (Button)findViewById(R.id.btn_fwd);
         back = (Button)findViewById(R.id.btn_bck);
         clear = (Button)findViewById(R.id.btn_clear);
