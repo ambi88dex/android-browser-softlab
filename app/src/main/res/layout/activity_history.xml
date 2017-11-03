@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anishkelkar.androidbrowsersoftlab.History">
+    tools:context="com.example.anishkelkar.androidbrowsersoftlab.History"
+    android:orientation="vertical"
+    >
 
-</android.support.constraint.ConstraintLayout>
+    <!--<ListView-->
+        <!--android:id="@+id/history_list"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:cacheColorHint="@android:color/transparent"-->
+        <!--android:divider="#CCCCCC"-->
+        <!--android:dividerHeight="1dp"-->
+        <!--android:paddingLeft="2dp" >-->
+    <!--</ListView>-->
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        />
+
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/t1"
+
+        />
+    <TextView
+        android:id="@+id/t3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/t2"
+
+        />
+    <TextView
+        android:id="@+id/t4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/t3"
+
+        />
+    <TextView
+        android:id="@+id/t5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/t4"
+        />
+
+</RelativeLayout>
